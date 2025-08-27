@@ -35,4 +35,4 @@ gcloud builds submit \
   --config cloudbuild.yaml
 ```
 
-```
+```# Vercel deployment trigger - Wed Aug 27 06:20:16 PDT 2025
