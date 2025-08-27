@@ -10,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from '../../../components/ui/radio-group'
 
 import { toast } from 'sonner'
 import lawSchools from '../../../data/law-schools.json'
+import PDFModal from './pdf-modal'
 
 interface SignatureFormData {
   email: string
@@ -40,6 +41,7 @@ export default function SignatureForm({ onBack, onSuccess }: SignatureFormProps)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [lawSchoolSearch, setLawSchoolSearch] = useState('')
   const [isLawSchoolOpen, setIsLawSchoolOpen] = useState(false)
+  const [isPDFModalOpen, setIsPDFModalOpen] = useState(false)
 
   const handleInputChange = (field: keyof SignatureFormData, value: string) => {
     setFormData(prev => ({
@@ -124,6 +126,16 @@ export default function SignatureForm({ onBack, onSuccess }: SignatureFormProps)
           </svg>
           Back to Campaign
         </button>
+        
+        <button
+          onClick={() => setIsPDFModalOpen(true)}
+          className="flex items-center text-[#2B5741] hover:text-emerald-600 transition-colors font-medium"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          View the Brief
+        </button>
       </div>
       
       <div className="modern-card rounded-xl overflow-hidden">
@@ -135,7 +147,8 @@ export default function SignatureForm({ onBack, onSuccess }: SignatureFormProps)
           <p className="text-[#2B5741]/90 mb-8 max-w-3xl">
             Add your signature to support this important legal initiative
           </p>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm text-[#2B5741] font-medium">Email *</Label>
@@ -335,6 +348,12 @@ export default function SignatureForm({ onBack, onSuccess }: SignatureFormProps)
           </form>
         </div>
       </div>
+
+      {/* PDF Modal */}
+      <PDFModal 
+        isOpen={isPDFModalOpen} 
+        onClose={() => setIsPDFModalOpen(false)} 
+      />
     </div>
   )
 }
