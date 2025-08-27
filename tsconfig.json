@@ -19,7 +19,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/data/*": ["./data/*"],
+      "@/hooks/*": ["./hooks/*"]
     },
     "types": ["react", "react-dom", "node"],
     "typeRoots": ["./node_modules/@types", "./types"]
