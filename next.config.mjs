@@ -12,6 +12,7 @@ const nextConfig = {
   experimental: {
     esmExternals: true,
   },
+  serverExternalPackages: ['@supabase/supabase-js'],
   async headers() {
     return [
       {

@@ -23,7 +23,10 @@
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
       "@/data/*": ["./data/*"],
-      "@/hooks/*": ["./hooks/*"]
+      "@/hooks/*": ["./hooks/*"],
+      "@/lib/utils": ["./lib/utils"],
+      "@/hooks/use-mobile": ["./hooks/use-mobile"],
+      "@/hooks/use-toast": ["./hooks/use-toast"]
     },
     "types": ["react", "react-dom", "node"],
     "typeRoots": ["./node_modules/@types", "./types"]
