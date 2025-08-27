@@ -110,10 +110,17 @@ export default function AmicusBriefPage() {
           </section>
         </>
       ) : (
-        <SignatureForm onBack={() => {
-          setShowForm(false)
-          setShowSuccessMessage(true)
-        }} />
+        <SignatureForm 
+          onBack={() => {
+            console.log('onBack called, hiding form')
+            setShowForm(false)
+          }} 
+          onSuccess={() => {
+            console.log('onSuccess called, showing success message')
+            setShowSuccessMessage(true)
+            setShowForm(false)
+          }} 
+        />
       )}
     </main>
   )

@@ -26,9 +26,10 @@ const yearOptions = ['1L', '2L', '3L', 'LLM']
 
 interface SignatureFormProps {
   onBack: () => void
+  onSuccess: () => void
 }
 
-export default function SignatureForm({ onBack }: SignatureFormProps) {
+export default function SignatureForm({ onBack, onSuccess }: SignatureFormProps) {
   const [formData, setFormData] = useState<SignatureFormData>({
     email: '',
     name: '',
@@ -85,6 +86,7 @@ export default function SignatureForm({ onBack }: SignatureFormProps) {
       })
 
       if (response.ok) {
+        console.log('Form submitted successfully, calling onSuccess in 1.5 seconds...')
         toast.success('Thank you! Your signature has been successfully added to the amicus brief.')
         // Reset form
         setFormData({
@@ -96,7 +98,8 @@ export default function SignatureForm({ onBack }: SignatureFormProps) {
         })
         // Return to campaign progress page after a short delay
         setTimeout(() => {
-          onBack()
+          console.log('Timeout completed, calling onSuccess()')
+          onSuccess()
         }, 1500)
       } else {
         const error = await response.json()

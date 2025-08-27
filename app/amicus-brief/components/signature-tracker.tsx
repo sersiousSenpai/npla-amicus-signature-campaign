@@ -80,7 +80,7 @@ export function SignatureTracker({ data, isLoading, error, onShowForm }: Signatu
             onClick={onShowForm}
             className="w-full py-3 px-4 bg-gradient-to-r from-[#2B5741] to-emerald-600 hover:from-[#1A4231] hover:to-emerald-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:translate-y-[-2px] hover:shadow-lg"
           >
-            View & Sign the Amicus Brief
+            View & Sign the Amicus Briefs
           </button>
         </div>
       </div>
