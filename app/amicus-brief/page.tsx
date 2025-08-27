@@ -39,10 +39,10 @@ export default function AmicusBriefPage() {
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <section className="mb-14">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#2B5741] to-emerald-600 text-transparent bg-clip-text mb-4 pb-1">
-          Sign the Law Student Amicus Brief
+          Sign the Law Student Amicus Briefs
         </h1>
         <p className="text-xl text-[#2B5741]/90 max-w-3xl">
-          Join law students nationwide in supporting Susman Godfrey's Motion for Summary Judgment.
+          Join law students nationwide in supporting law firms fighting to ensure that lawyers have the freedom to choose their cases.
         </p>
       </section>
 
