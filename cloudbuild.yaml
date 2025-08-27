@@ -1,0 +1,36 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/npl.ai/amicus-brief:$BUILD_ID'
+      - '--build-arg'
+      - 'CACHE_BUST=$BUILD_ID'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/npl.ai/amicus-brief:$BUILD_ID'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'amicus-brief'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/npl.ai/amicus-brief:$BUILD_ID'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--service-account'
+      - 'student-amicus-signatures@artful-memento-457519-e9.iam.gserviceaccount.com'
+
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/npl.ai/amicus-brief:$BUILD_ID'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build && npm run process-docs",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_VERCEL_URL": "${VERCEL_URL}",
+    "ALLOWED_ORIGIN": "https://www.npla.ai"
+  }
+} 
